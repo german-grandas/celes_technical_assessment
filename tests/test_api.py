@@ -1,16 +1,14 @@
-import pytest
-from unittest.mock import patch
+import unittest
 
 from server.api import app
 
 
-@pytest.fixture
-def client():
-    app.config["TESTING"] = True
-    with app.test_client() as client:
-        yield client
+class RootUnitTest(unittest.TestCase):
+    def setUp(self):
+        app.config["TESTING"] = True
+        self.app = app
+        self.client = app.test_client()
 
-
-def test_root(client):
-    response = client.get("/")
-    assert response.status_code == 200
+    def test_root(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
