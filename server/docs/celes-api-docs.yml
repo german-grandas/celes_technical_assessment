@@ -1,0 +1,155 @@
+swagger: "2.0"
+info:
+  title: Celes API
+  description: Celes technical assessment documentation
+  version: "1.0"
+paths:
+  /:
+    get:
+      summary: Get mock response from root
+      responses:
+        "200":
+          description: Successful response
+  /login:
+    post:
+      summary: Another endpoint
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: email
+                description: User login email
+              password:
+                type: password
+                description: User login password
+
+      responses:
+        "200":
+          description: Successful login
+
+        "401":
+          description: Unauthorized access
+
+  /getSalesByEmployee:
+    get:
+      summary: Get sales by employee
+      parameters:
+        - name: employee_id
+          in: query
+          type: integer
+          required: true
+          description: Employee ID
+        - name: start_date
+          in: query
+          type: string
+          required: true
+          description: Start date (YYYY-MM-DD)
+        - name: end_date
+          in: query
+          type: string
+          required: true
+          description: End date (YYYY-MM-DD)
+      responses:
+        "200":
+          description: Successful response
+        "500":
+          description: Internal server error
+
+  /getSalesByStore:
+    get:
+      summary: Get sales by store
+      parameters:
+        - name: store_id
+          in: query
+          type: integer
+          required: true
+          description: store ID
+        - name: start_date
+          in: query
+          type: string
+          required: true
+          description: Start date (YYYY-MM-DD)
+        - name: end_date
+          in: query
+          type: string
+          required: true
+          description: End date (YYYY-MM-DD)
+      responses:
+        "200":
+          description: Successful response
+        "500":
+          description: Internal server error
+
+  /getSalesByProduct:
+    get:
+      summary: Get sales by product
+      parameters:
+        - name: product_id
+          in: query
+          type: integer
+          required: true
+          description: product ID
+        - name: start_date
+          in: query
+          type: string
+          required: true
+          description: Start date (YYYY-MM-DD)
+        - name: end_date
+          in: query
+          type: string
+          required: true
+          description: End date (YYYY-MM-DD)
+      responses:
+        "200":
+          description: Successful response
+        "500":
+          description: Internal server error
+
+  /getSalesInformationByStore:
+    get:
+      summary: Get sales information by a given store
+      parameters:
+        - name: store_id
+          in: query
+          type: string
+          required: true
+          description: Store ID
+      responses:
+        "200":
+          description: Successful response
+        "500":
+          description: Internal server error
+
+  /getSalesInformationByProduct:
+    get:
+      summary: Get sales information by a given product
+      parameters:
+        - name: product_id
+          in: query
+          type: string
+          required: true
+          description: product ID
+      responses:
+        "200":
+          description: Successful response
+        "500":
+          description: Internal server error
+
+  /getSalesInformationByEmployee:
+    get:
+      summary: Get sales information by a given employee
+      parameters:
+        - name: employee_id
+          in: query
+          type: string
+          required: true
+          description: employee ID
+      responses:
+        "200":
+          description: Successful response
+        "500":
+          description: Internal server error

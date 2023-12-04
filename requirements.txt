@@ -1,0 +1,9 @@
+python-dotenv
+flask 
+Flask-SQLAlchemy
+flasgger
+firebase-admin
+pandas
+pyarrow
+black
+pytest 
